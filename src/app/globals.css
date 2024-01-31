@@ -24,4 +24,131 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  height: 100vh;
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.74);
+  max-height: 80vh;
+  min-height: 200px;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.taskList li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px rgb(223, 223, 223);
+  padding: 5px 10px;
+  align-items: center;
+}
+
+.taskList button {
+  background-color: tomato;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  font-size: 13px;
+}
+
+.taskList input[type="checkbox"] {
+  margin: 0px 5px;
+  vertical-align: middle;
+}
+
+.navBar {
+  display: flex;
+  background: #225fc9;
+  color: rgba(255, 255, 255, 0.726);
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+.navBar ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navBar li {
+  padding: 0px 10px;
+  border-right: 1px solid white;
+}
+
+.navBar li:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navBar li:last-child {
+  border-right: none;
+}
+
+.createTaskForm {
+  padding: 2.5rem 0rem 0.6rem 0rem;
+  display: flex;
+  justify-content: center;
+}
+
+.createTaskForm input[type="text"] {
+  margin-right: 5px;
+  width: 726px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.createTaskForm input[type="submit"] {
+  background: #225fc9;
+  color: rgba(255, 255, 255, 0.726);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.about {
+  width: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+.about img {
+  filter: brightness(1.5);
+}
+
+.createTaskForm input[type="submit"]:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+ul.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color:#225fc9;
+  text-wrap: nowrap;
+}
+
+ul.submenu li{
+  border-right: none;
+  border-bottom: solid #ffffff40;
+  padding: 5px;
+}
+
+ul.submenu li:last-child{
+  border: none;
+}
+
+.submenuContainer{
+  position: relative;
+}
+
+li.submenuContainer:hover > ul{
+  display: block;
 }

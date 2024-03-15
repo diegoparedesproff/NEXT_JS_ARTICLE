@@ -1,8 +1,18 @@
 import TaskListItem from './TaskListItem';
+import path from 'path';
 
 const fetchTasks = async ()=>{
-  const response = await fetch('http://localhost:3000/api/tasks');
-  const data = await response.json();
+  //const response = await fetch('http://localhost:3000/api/tasks');
+  let data = [];
+  try{
+    const baseUrl = `https://${process.env.VERCEL_URL}`;
+    console.log("baseUrl ===== ",baseUrl)
+    const response = await fetch(baseUrl+'/db.json');
+    console.log("response = ",response);
+    data = await response.json();
+  }catch(err){
+    console.log("error en el fetch: ",err)
+  }
   return data;
 }
 

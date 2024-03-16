@@ -8,8 +8,10 @@ const { v4: uuidv4 } = require("uuid");
 const filePath = process.cwd() + "src/app/(fakeDB)/index.json";
 
 export const getTasks = () => {
+  
   try {
     if (fs.existsSync(filePath)) {
+      
       const jsonData = fs.readFileSync(filePath, "utf8");
       const fakeDB = JSON.parse(jsonData);
       return fakeDB;
@@ -18,6 +20,7 @@ export const getTasks = () => {
       return [];
     }
   } catch (error) {
+    console.log("filePath = ",console.log(filePath));
     return error;
   }
 };

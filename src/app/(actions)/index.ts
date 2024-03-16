@@ -8,6 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 const filePath = "src/app/(fakeDB)/index.json";
 
 export const getTasks = () => {
+  return "eso es";
   try {
     if (fs.existsSync(filePath)) {
       const jsonData = fs.readFileSync(filePath, "utf8");

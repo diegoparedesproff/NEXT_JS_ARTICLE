@@ -5,10 +5,9 @@ import { orderByLatestCreated } from "../(helpers)";
 
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
-const filePath = "src/app/(fakeDB)/index.json";
+const filePath = process.cwd() + "src/app/(fakeDB)/index.json";
 
 export const getTasks = () => {
-  return "eso es";
   try {
     if (fs.existsSync(filePath)) {
       const jsonData = fs.readFileSync(filePath, "utf8");

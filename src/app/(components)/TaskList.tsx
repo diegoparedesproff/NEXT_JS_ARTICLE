@@ -2,6 +2,8 @@ import TaskListItem from "./TaskListItem";
 import path from "path";
 
 let myUrl = "esta";
+let myResp = "";
+let parsed = "";
 
 const fetchTasks = async () => {
   //const response = await fetch('http://localhost:3000/api/tasks');
@@ -12,7 +14,9 @@ const fetchTasks = async () => {
     myUrl = baseUrl;
     const response = await fetch(baseUrl + "/api/tasks");
     console.log("response = ", response);
+    myResp = response;
     data = await response.json();
+    parsed = data;
   } catch (err) {
     console.log("error en el fetch: ", err);
   }
@@ -21,9 +25,10 @@ const fetchTasks = async () => {
 
 const TaskList = async () => {
   const tasks = await fetchTasks();
+  console.log({ tasks, myUrl, myResp, parsed });
   return (
     <ul className="taskList">
-      <div>{`La url = ${myUrl}`}</div>
+      <div>{`La url = ${myUrl}, response = ${myResp}, parsed = ${parsed}`}</div>
       {tasks?.map((task) => (
         <TaskListItem key={task.id} task={task} />
       ))}

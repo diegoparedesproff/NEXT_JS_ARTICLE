@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const validateUserAuth = (request: NextRequest) => {
   //Your validations here...
-  //console.log("request object inside middleware validateUserAuth = ", request);
+  console.log("request object inside middleware validateUserAuth = ", request);
   //Use the NextResponse for the actions you require
   //https://nextjs.org/docs/app/api-reference/functions/next-response
   return NextResponse.next();

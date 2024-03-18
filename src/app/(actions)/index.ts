@@ -32,18 +32,14 @@ export const addTask = async (props: FormData | string) => {
 };
 
 export const deleteTask = async (id) => {
-  const newTaskList = await `DELETE FROM tasks WHERE id = ${id}`;
+  const newTaskList = await sql`DELETE FROM tasks WHERE id = ${id}`;
   revalidatePath("/tasks");
 };
 
-export const updateTask = (payload) => {
-  const removedItemToUpdate = getTasks().filter(
-    (task) => task.id !== payload.id
-  );
-  const newTaskList = [
-    ...removedItemToUpdate,
-    { ...payload, completed: !payload.completed },
-  ];
-  saveToFakeDB(newTaskList);
+export const updateTask = async (payload) => {
+  const query =
+    await sql`UPDATE tasks SET completed = ${!payload.completed} WHERE id = ${
+      payload.id
+    };`;
   revalidatePath("/tasks");
 };

@@ -27,7 +27,7 @@ const saveToFakeDB = (payload) => {
 
 export const addTask = async (props: FormData | string) => {
   const content = typeof props === "string" ? props : props.get("task");
-  const { rows } = await sql`INSERT INTO task (content) VALUES (${content})`;
+  const { rows } = await sql`INSERT INTO tasks (content) VALUES (${content})`;
   revalidatePath("/tasks");
 };
 

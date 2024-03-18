@@ -27,7 +27,7 @@ export const getTasks = () => {
 
 export const getTasks = async () => {
   try {
-    const { rows } = await sql`SELECT * from dogs`;
+    const { rows } = await sql`SELECT * from tasks`;
     console.log("rows === ", rows);
     return rows;
   } catch (error) {

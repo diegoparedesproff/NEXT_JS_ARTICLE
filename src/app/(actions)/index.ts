@@ -27,7 +27,7 @@ export const getTasks = () => {
 
 export const getTasks = async () => {
   try {
-    const { rows } = await sql`SELECT * from tasks`;
+    const { rows } = await sql`SELECT * from tasks ORDER BY createdAt`;
     console.log("rows === ", rows);
     return rows;
   } catch (error) {
@@ -53,16 +53,12 @@ export const addTask = (props: FormData | string) => {
   revalidatePath("/tasks");
 };
 */
-/*
-export const addTask = (props: FormData | string) => {
+
+export const addTask = async (props: FormData | string) => {
   const content = typeof props === "string" ? props : props.get("task");
-  const id = uuidv4();
-  const createdAt = Date.now();
-  const newTask = { id, content, completed: false, createdAt };
-  const newTaskList = [...getTasks(), newTask];
-  const { rows } = await sql`INSERT INTO task COLUMNS `;
+  const { rows } = await sql`INSERT INTO task (content) VALUES (${content})`;
   revalidatePath("/tasks");
-};*/
+};
 
 export const deleteTask = (id) => {
   const newTaskList = getTasks().filter((task) => task.id !== id);

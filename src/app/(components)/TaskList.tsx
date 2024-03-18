@@ -10,7 +10,7 @@ const fetchTasks = async () => {
     const baseUrl = `https://${process.env.VERCEL_URL}`;
     console.log("baseUrl ===== ", baseUrl);
     myUrl = baseUrl;
-    const response = await fetch(baseUrl + "/db.json");
+    const response = await fetch(baseUrl + "/api/tasks");
     console.log("response = ", response);
     data = await response.json();
   } catch (err) {

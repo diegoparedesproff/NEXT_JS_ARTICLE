@@ -1,23 +1,14 @@
 import TaskListItem from "./TaskListItem";
-import path from "path";
-
-let myUrl = "esta";
-let myResp = "";
-let parsed = "";
 
 const fetchTasks = async () => {
   //const response = await fetch('http://localhost:3000/api/tasks');
   let data = [];
   try {
+    //works in browser, for some reason not here
     const baseUrl = `https://${process.env.VERCEL_URL}`;
-    console.log("baseUrl ===== ", baseUrl);
-    myUrl = baseUrl;
-    //const response = await fetch(baseUrl + "/api/tasks");
     const response = await fetch(
       `https://next-js-article.vercel.app/api/tasks`
     );
-    console.log("response = ", response);
-    myResp = response;
     data = await response.json();
     parsed = data;
   } catch (err) {
@@ -28,7 +19,6 @@ const fetchTasks = async () => {
 
 const TaskList = async () => {
   const tasks = await fetchTasks();
-  console.log({ tasks, myUrl, myResp, parsed });
   return (
     <ul className="taskList">
       {tasks?.map((task) => (

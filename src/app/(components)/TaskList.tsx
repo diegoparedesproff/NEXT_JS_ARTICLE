@@ -28,7 +28,9 @@ const TaskList = async () => {
   console.log({ tasks, myUrl, myResp, parsed });
   return (
     <ul className="taskList">
-      <div>{`La url = ${myUrl}, response = ${myResp}, parsed = ${parsed}`}</div>
+      <div>{`La url = ${myUrl}, response = ${JSON.stringify(
+        myResp
+      )}, parsed = ${parsed}`}</div>
       {tasks?.map((task) => (
         <TaskListItem key={task.id} task={task} />
       ))}

@@ -12,7 +12,10 @@ const fetchTasks = async () => {
     const baseUrl = `https://${process.env.VERCEL_URL}`;
     console.log("baseUrl ===== ", baseUrl);
     myUrl = baseUrl;
-    const response = await fetch(baseUrl + "/api/tasks");
+    //const response = await fetch(baseUrl + "/api/tasks");
+    const response = await fetch(
+      `https://next-js-article.vercel.app/api/tasks`
+    );
     console.log("response = ", response);
     myResp = response;
     data = await response.json();

@@ -10,7 +10,6 @@ const fetchTasks = async () => {
       `https://next-js-article.vercel.app/api/tasks`
     );
     data = await response.json();
-    parsed = data;
   } catch (err) {
     console.log("error en el fetch: ", err);
   }
